@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes, viewport-fit=cover">
+  <title>Own It! 3 · Unit 6 · Present Simple Passive</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0f0f1a;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(236, 72, 153, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 1.5rem 1rem;
+      margin: 0;
+      color: #e2e8f0;
+    }
+
+    .trainer-container {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(22, 22, 38, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: 2rem;
+      box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 25px 60px rgba(0, 0, 0, 0.55),
+        0 0 80px rgba(99, 102, 241, 0.08);
+      padding: 2rem 2rem 1.8rem;
+      transition: all 0.3s ease;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #a78bfa 0%, #6366f1 40%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    h1 .badge {
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-text-fill-color: white;
+      padding: 0.25rem 0.9rem;
+      border-radius: 2rem;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.2px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 1.6rem;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 1.2rem;
+      padding: 0.3rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .tab-btn {
+      flex: 1;
+      background: transparent;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.7rem 0.5rem;
+      border-radius: 1rem;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      letter-spacing: 0.2px;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #ffffff;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+    }
+    .tab-btn:hover:not(.active) {
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .panel {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .grammar-reminder {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 1.5rem;
+      padding: 1.5rem 1.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      margin-bottom: 1.5rem;
+    }
+    .grammar-reminder h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .formula-box {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 1.2rem;
+      padding: 1.1rem 1.2rem;
+      margin: 0.7rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .formula-box p {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .formula {
+      font-size: 1.05rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.15));
+      display: inline-block;
+      padding: 0.5rem 1.1rem;
+      border-radius: 2rem;
+      margin: 0.4rem 0;
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      font-family: 'Inter', monospace;
+    }
+    .example {
+      color: #94a3b8;
+      font-style: italic;
+      margin-left: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .example strong {
+      color: #f472b6;
+      font-style: normal;
+    }
+    .note {
+      background: rgba(6, 182, 212, 0.08);
+      border-left: 3px solid #06b6d4;
+      padding: 0.7rem 1rem;
+      border-radius: 0.8rem;
+      margin-top: 0.9rem;
+      font-size: 0.88rem;
+      color: #a5f3fc;
+      line-height: 1.5;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 1.8rem;
+      padding: 1.8rem 1.8rem 1.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+      opacity: 0.7;
+    }
+    .progress {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #818cf8;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      letter-spacing: 0.3px;
+    }
+    .progress-bar-wrap {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 4px;
+      margin-bottom: 1.2rem;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+      border-radius: 4px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+    .sentence-line {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin: 0.5rem 0 1.5rem;
+      line-height: 1.7;
+      word-break: break-word;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.35rem;
+    }
+    .sentence-line span {
+      white-space: pre-wrap;
+    }
+    .blank-input {
+      width: 140px;
+      padding: 0.45rem 0.7rem;
+      border: 2px solid rgba(99, 102, 241, 0.3);
+      border-radius: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.05);
+      color: #f1f5f9;
+      text-align: center;
+      margin: 0 0.15rem;
+      transition: all 0.25s ease;
+      outline: none;
+    }
+    .blank-input::placeholder {
+      color: rgba(148, 163, 184, 0.4);
+      font-weight: 500;
+    }
+    .blank-input:focus {
+      border-color: #6366f1;
+      background: rgba(99, 102, 241, 0.1);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    }
+    .action-buttons {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .btn {
+      font-family: 'Inter', sans-serif;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.65rem 1.4rem;
+      border-radius: 1rem;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      color: #cbd5e1;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      letter-spacing: 0.2px;
+    }
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+    .btn:active {
+      transform: translateY(0);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border: none;
+      color: white;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #7c3aed, #a78bfa);
+      box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+      transform: translateY(-1px);
+    }
+    .btn-share {
+      background: linear-gradient(135deg, #06b6d4, #0891b2);
+      border: none;
+      color: white;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+    }
+    .btn-share:hover {
+      background: linear-gradient(135deg, #22d3ee, #06b6d4);
+      box-shadow: 0 6px 25px rgba(6, 182, 212, 0.45);
+      transform: translateY(-1px);
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.2rem;
+      gap: 0.6rem;
+    }
+    .feedback {
+      margin-top: 0.9rem;
+      font-weight: 600;
+      min-height: 1.8rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #94a3b8;
+    }
+    .feedback strong {
+      color: #f472b6;
+    }
+    .correct-input {
+      border-color: #10b981 !important;
+      background: rgba(16, 185, 129, 0.12) !important;
+      color: #6ee7b7 !important;
+    }
+    .incorrect-input {
+      border-color: #ef4444 !important;
+      background: rgba(239, 68, 68, 0.1) !important;
+      color: #fca5a5 !important;
+    }
+
+    .results-section {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 1.5rem;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      margin-top: 1.2rem;
+      display: none;
+    }
+    .results-section.visible {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+    .results-section h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .result-stats {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .stat-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      padding: 0.7rem 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-width: 120px;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.2rem;
+    }
+    .stat-value {
+      font-size: 1.3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #a78bfa, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @media (max-width: 550px) {
+      .trainer-container {
+        padding: 1.3rem 1rem;
+        border-radius: 1.5rem;
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
+      .sentence-line {
+        font-size: 1.15rem;
+      }
+      .blank-input {
+        width: 100px;
+        font-size: 0.95rem;
+      }
+      .btn {
+        padding: 0.55rem 1rem;
+        font-size: 0.85rem;
+      }
+      .stat-item {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="trainer-container">
+  <h1>
+    🧪 Present Simple Passive
+    <span class="badge">Unit 6</span>
+  </h1>
+  <p class="subtitle">Own It! 3 · Think Outside the Box</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" id="tabReminderBtn">📘 Reminder</button>
+    <button class="tab-btn" id="tabTrainerBtn">🎯 Trainer</button>
+  </div>
+
+  <!-- REMINDER PANEL -->
+  <div class="panel active" id="reminderPanel">
+    <div class="grammar-reminder">
+      <h2>✨ Present Simple Passive</h2>
+      <div class="formula-box">
+        <p style="font-weight:700; color:#a5b4fc; font-size:1rem;">🔹 FORM</p>
+        <div class="formula">am / is / are + V3 (past participle)</div>
+        <p class="example">The mixture <strong>is cooked</strong> in an oven.</p>
+        <p class="example">Different liquids <strong>are added</strong> to the paste.</p>
+        <p class="example">Plastic bags <strong>aren't recycled</strong>.</p>
+        <p class="example">How many banana skins <strong>are thrown away</strong> every day?</p>
+      </div>
+      <div class="formula-box">
+        <p style="font-weight:700; color:#a5b4fc; font-size:1rem;">🔸 WHEN TO USE</p>
+        <p>We use the passive when the <strong style="color:#f472b6;">action is more important</strong> than who does it, or when we <strong style="color:#f472b6;">don't know</strong> who does it.</p>
+        <p class="example">Bioplastics <strong>are made</strong> from starch. (We don't need to say who makes them.)</p>
+      </div>
+      <div class="formula-box">
+        <p style="font-weight:700; color:#a5b4fc; font-size:1rem;">🔹 NEGATIVE & QUESTIONS</p>
+        <div class="formula">am / is / are + not + V3</div>
+        <p class="example">The circuit board <strong>isn't designed</strong> correctly.</p>
+        <div class="formula" style="margin-top:0.4rem;">(Wh-) + am / is / are + subject + V3?</div>
+        <p class="example"><strong>Is</strong> the banana skin <strong>dipped</strong> in a special liquid?</p>
+        <p class="example"><strong>Where is</strong> starch <strong>found</strong>?</p>
+      </div>
+      <p style="margin-top:0.9rem; color:#94a3b8; font-size:0.88rem;">✅ Short forms accepted: isn't, aren't, 's, 're.</p>
+      <div class="note">
+        ⚡ <strong>Tip:</strong> Regular past participles end in <strong>-ed</strong> (cooked, added, recycled). Irregular ones you need to remember (made, found, thrown, eaten, sold, etc.).
+      </div>
+    </div>
+  </div>
+
+  <!-- TRAINER PANEL -->
+  <div class="panel" id="trainerPanel">
+    <div class="card" id="cardContainer">
+      <div class="progress" id="progressText">Question 1 of 50</div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBarFill"></div></div>
+      <div class="sentence-line" id="sentenceDisplay"></div>
+      <div class="action-buttons">
+        <button class="btn btn-primary" id="checkBtn">✅ Check</button>
+        <button class="btn" id="showHintBtn">💡 Hint</button>
+        <button class="btn" id="clearBtn">🔄 Clear</button>
+      </div>
+      <div class="feedback" id="feedbackMsg"></div>
+    </div>
+    <div class="nav-buttons">
+      <button class="btn" id="prevBtn">◀ Previous</button>
+      <button class="btn" id="nextBtn">Next ▶</button>
+    </div>
+    <p style="text-align:center; margin-top:0.7rem; color:#475569; font-size:0.82rem;">⌨️ Use left/right arrow keys to navigate</p>
+
+    <div style="text-align:center; margin-top:1.2rem;">
+      <button class="btn btn-share" id="shareBtn" style="padding:0.75rem 1.8rem; font-size:0.95rem;">
+        📤 Share with Teacher
+      </button>
+    </div>
+
+    <div class="results-section" id="resultsSection">
+      <h3>📊 Your Results</h3>
+      <div class="result-stats">
+        <div class="stat-item">
+          <div class="stat-label">Correct</div>
+          <div class="stat-value" id="statCorrect">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Total</div>
+          <div class="stat-value" id="statTotal">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Score</div>
+          <div class="stat-value" id="statScore">0%</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Time</div>
+          <div class="stat-value" id="statTime">0:00</div>
+        </div>
+      </div>
+      <p style="color:#64748b; font-size:0.82rem; margin-top:0.5rem;">Copy the text below and send it to your teacher:</p>
+      <textarea id="shareText" readonly style="width:100%; margin-top:0.5rem; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.1); border-radius:0.8rem; padding:0.8rem; color:#cbd5e1; font-family:'Inter',monospace; font-size:0.82rem; resize:vertical; min-height:90px; outline:none;"></textarea>
+      <button class="btn" id="copyBtn" style="margin-top:0.6rem;">📋 Copy to Clipboard</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // ---------- SENTENCES (Own It! 3 Unit 6, pp. 71-74) ----------
+    const sentencesData = [
+      // --- Vocabulary p.71: Making things ---
+      { raw: "The water ___ (boil) before you pour it into the cup.", answers: [["is boiled"]] },
+      { raw: "The mixture ___ (stir) for two minutes.", answers: [["is stirred"]] },
+      { raw: "The ice cream ___ (freeze) at -30°C.", answers: [["is frozen"]] },
+      { raw: "The temperature ___ (reduce) before the ice lolly is removed.", answers: [["is reduced"]] },
+      { raw: "The ingredients ___ (add) one by one.", answers: [["are added"]] },
+      { raw: "The candle ___ (place) in the holder.", answers: [["is placed"]] },
+      { raw: "The smoothie ___ (pour) into a glass.", answers: [["is poured"]] },
+      { raw: "The perfume ___ (make) from flowers.", answers: [["is made"]] },
+      { raw: "The soup ___ (cook) for 30 minutes.", answers: [["is cooked"]] },
+      { raw: "The cup ___ (cover) with a lid.", answers: [["is covered"]] },
+      { raw: "The strawberries ___ (dip) in chocolate.", answers: [["are dipped"]] },
+      { raw: "The mixture ___ (press) into a mould.", answers: [["is pressed"]] },
+      { raw: "The ice lolly ___ (pull) out of the mould.", answers: [["is pulled"]] },
+      { raw: "The top ___ (remove) carefully.", answers: [["is removed"]] },
+
+      // --- Reading p.72: Banana skin invention ---
+      { raw: "Starch ___ (find) in foods like potatoes and bananas.", answers: [["is found"]] },
+      { raw: "Over 200 tonnes of banana skins ___ (throw away) every day in Thailand.", answers: [["are thrown away"]] },
+      { raw: "The banana skin ___ (dip) in a special liquid.", answers: [["is dipped"]] },
+      { raw: "The banana skin ___ (heat) for 30 minutes.", answers: [["is heated"]] },
+      { raw: "The banana skin ___ (dry) and ___ (press) into a paste.", answers: [["is dried"], ["pressed"]] },
+      { raw: "Different liquids ___ (add) to the paste.", answers: [["are added"]] },
+      { raw: "The mixture ___ (stir) carefully.", answers: [["is stirred"]] },
+      { raw: "The mixture ___ (cook) in an oven.", answers: [["is cooked"]] },
+      { raw: "Bioplastics ___ (make) from starch.", answers: [["are made"]] },
+      { raw: "Plastic bags ___ (not recycle) in many countries.", answers: [["aren't recycled", "are not recycled"]] },
+      { raw: "The environment ___ (pollute) by plastic bags.", answers: [["is polluted"]] },
+      { raw: "A solution ___ (look for) by the young inventor.", answers: [["is looked for"]] },
+      { raw: "Experiments ___ (carry out) at school and in the kitchen.", answers: [["are carried out"]] },
+      { raw: "The plastic ___ (make into) new products.", answers: [["is made into"]] },
+
+      // --- Language in Action p.73: Present simple passive ---
+      { raw: "The mixture ___ (cook) in an oven.", answers: [["is cooked"]] },
+      { raw: "Different liquids ___ (add) to the paste.", answers: [["are added"]] },
+      { raw: "Plastic bags ___ (not recycle).", answers: [["aren't recycled", "are not recycled"]] },
+      { raw: "How many banana skins ___ (throw away) in Thailand every day?", answers: [["are thrown away"]] },
+      { raw: "Where ___ (be) starch ___ (find)?", answers: [["is"], ["found"]] },
+      { raw: "Most students ___ (not teach) to make bioplastic at school.", answers: [["aren't taught", "are not taught"]] },
+      { raw: "How many experiments ___ (carry out) every day?", answers: [["are carried out"]] },
+      { raw: "The river ___ (pollute) with plastic bottles.", answers: [["is polluted"]] },
+      { raw: "What ingredients ___ (use) to make pasta?", answers: [["are used"]] },
+      { raw: "Where ___ (be) Arabic ___ (speak)?", answers: [["is"], ["spoken"]] },
+      { raw: "In which countries ___ (be) insects ___ (eat)?", answers: [["are"], ["eaten"]] },
+      { raw: "What ___ (make) from paper?", answers: [["is made"]] },
+      { raw: "Which places ___ (visit) by tourists in your country?", answers: [["are visited"]] },
+      { raw: "The mobile phone ___ (make) in a factory.", answers: [["is made"]] },
+      { raw: "First the case ___ (create), and then the circuit board ___ (make).", answers: [["is created"], ["is made"]] },
+      { raw: "If the circuit board ___ (not design) correctly, the phone won't work.", answers: [["isn't designed", "is not designed"]] },
+      { raw: "After the circuit board ___ (finish), it ___ (place) inside the case.", answers: [["is finished"], ["is placed"]] },
+      { raw: "The screen, keypad, microphone and speakers ___ (add).", answers: [["are added"]] },
+      { raw: "Finally, the phone ___ (test) to check it works before it ___ (sell).", answers: [["is tested"], ["is sold"]] },
+
+      // --- Vocabulary p.74: Materials and containers ---
+      { raw: "Silk ___ (use) to make bags and clothes.", answers: [["is used"]] },
+      { raw: "Leather ___ (make) from animal skin.", answers: [["is made"]] },
+      { raw: "Glass ___ (produce) from sand.", answers: [["is produced"]] },
+      { raw: "Rubber ___ (find) in tyres and boots.", answers: [["is found"]] },
+      { raw: "Tin ___ (use) for cans.", answers: [["is used"]] },
+      { raw: "Cardboard ___ (make) from paper.", answers: [["is made"]] },
+      { raw: "The jar ___ (fill) with jam.", answers: [["is filled"]] },
+      { raw: "The tube ___ (press) to get the toothpaste out.", answers: [["is pressed"]] },
+      { raw: "The box ___ (open) carefully.", answers: [["is opened"]] },
+      { raw: "The case ___ (close) with a zip.", answers: [["is closed"]] },
+      { raw: "Bagpipes ___ (play) in Scotland.", answers: [["are played"]] },
+      { raw: "The boomerang ___ (throw) and it comes back.", answers: [["is thrown"]] },
+      { raw: "The piñata ___ (fill) with sweets.", answers: [["is filled"]] },
+      { raw: "Chewing gum ___ (make) from chicle.", answers: [["is made"]] }
+    ];
+
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+    shuffleArray(sentencesData);
+
+    const parsedSentences = sentencesData.map(item => {
+      const raw = item.raw;
+      const answers = item.answers;
+      const parts = [];
+      const blanks = [];
+      let remaining = raw;
+      let idx = 0;
+      while (remaining.includes('___ (')) {
+        const before = remaining.substring(0, remaining.indexOf('___ ('));
+        parts.push(before);
+        const afterStart = remaining.indexOf('___ (') + 4;
+        const verbEnd = remaining.indexOf(')', afterStart);
+        let verb = remaining.substring(afterStart, verbEnd).trim();
+        verb = verb.replace(/[()]/g, '').trim();
+        blanks.push({ verb: verb, answers: answers[idx] });
+        parts.push('___');
+        remaining = remaining.substring(verbEnd + 1);
+        idx++;
+      }
+      parts.push(remaining);
+      return { parts, blanks };
+    });
+
+    const total = parsedSentences.length;
+    let currentIndex = 0;
+
+    let startTime = null;
+    let timerInterval = null;
+    let correctCount = 0;
+    let answeredSet = new Set();
+
+    const tabReminderBtn = document.getElementById('tabReminderBtn');
+    const tabTrainerBtn = document.getElementById('tabTrainerBtn');
+    const reminderPanel = document.getElementById('reminderPanel');
+    const trainerPanel = document.getElementById('trainerPanel');
+    const progressText = document.getElementById('progressText');
+    const progressBarFill = document.getElementById('progressBarFill');
+    const sentenceDisplay = document.getElementById('sentenceDisplay');
+    const checkBtn = document.getElementById('checkBtn');
+    const showHintBtn = document.getElementById('showHintBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const feedbackMsg = document.getElementById('feedbackMsg');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const resultsSection = document.getElementById('resultsSection');
+    const statCorrect = document.getElementById('statCorrect');
+    const statTotal = document.getElementById('statTotal');
+    const statScore = document.getElementById('statScore');
+    const statTime = document.getElementById('statTime');
+    const shareText = document.getElementById('shareText');
+    const copyBtn = document.getElementById('copyBtn');
+
+    function playSound(type = 'click') {
+      try {
+        const ac = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ac.createOscillator();
+        const gain = ac.createGain();
+        osc.connect(gain);
+        gain.connect(ac.destination);
+        if (type === 'correct') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(620, ac.currentTime);
+          gain.gain.setValueAtTime(0.12, ac.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 0.2);
+          osc.start(ac.currentTime);
+          osc.stop(ac.currentTime + 0.2);
+        } else if (type === 'wrong') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(280, ac.currentTime);
+          gain.gain.setValueAtTime(0.1, ac.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 0.25);
+          osc.start(ac.currentTime);
+          osc.stop(ac.currentTime + 0.25);
+        } else {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(440, ac.currentTime);
+          gain.gain.setValueAtTime(0.06, ac.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 0.12);
+          osc.start(ac.currentTime);
+          osc.stop(ac.currentTime + 0.12);
+        }
+      } catch (e) {}
+    }
+
+    function startTimer() {
+      if (startTime === null) {
+        startTime = Date.now();
+        timerInterval = setInterval(() => {}, 1000);
+      }
+    }
+
+    function formatTime(ms) {
+      const totalSec = Math.floor(ms / 1000);
+      const min = Math.floor(totalSec / 60);
+      const sec = totalSec % 60;
+      return `${min}:${sec.toString().padStart(2, '0')}`;
+    }
+
+    function renderCard() {
+      const item = parsedSentences[currentIndex];
+      sentenceDisplay.innerHTML = '';
+      item.parts.forEach((part, i) => {
+        if (part === '___') {
+          const blankIdx = item.parts.slice(0, i).filter(p => p === '___').length;
+          const blank = item.blanks[blankIdx];
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.className = 'blank-input';
+          input.placeholder = blank.verb;
+          input.setAttribute('data-blank-index', blankIdx);
+          sentenceDisplay.appendChild(input);
+        } else {
+          const span = document.createElement('span');
+          span.textContent = part;
+          sentenceDisplay.appendChild(span);
+        }
+      });
+      progressText.textContent = `Question ${currentIndex + 1} of ${total}`;
+      progressBarFill.style.width = `${((currentIndex + 1) / total) * 100}%`;
+      feedbackMsg.innerHTML = '';
+    }
+
+    function getInputValues() {
+      const inputs = document.querySelectorAll('#sentenceDisplay .blank-input');
+      return Array.from(inputs).map(inp => inp.value.trim());
+    }
+
+    function normalize(str) {
+      return str.replace(/’/g, "'").replace(/\s+/g, ' ').toLowerCase().trim();
+    }
+
+    function checkAnswers() {
+      startTimer();
+      const item = parsedSentences[currentIndex];
+      const inputs = document.querySelectorAll('#sentenceDisplay .blank-input');
+      const values = getInputValues();
+      let allCorrect = true;
+      inputs.forEach((inp, idx) => {
+        const userVal = normalize(values[idx]);
+        const accepted = item.blanks[idx].answers.map(a => normalize(a));
+        if (userVal === '' || !accepted.includes(userVal)) {
+          inp.classList.add('incorrect-input');
+          inp.classList.remove('correct-input');
+          allCorrect = false;
+        } else {
+          inp.classList.add('correct-input');
+          inp.classList.remove('incorrect-input');
+        }
+      });
+      if (allCorrect && values.every(v => v !== '')) {
+        feedbackMsg.innerHTML = '🎉 Perfect! All correct!';
+        playSound('correct');
+        if (!answeredSet.has(currentIndex)) {
+          answeredSet.add(currentIndex);
+          correctCount = answeredSet.size;
+        }
+      } else {
+        const possible = item.blanks.map(b => b.answers.join(' / ')).join('  |  ');
+        feedbackMsg.innerHTML = `❌ Some answers need checking. Possible: <strong>${possible}</strong>`;
+        playSound('wrong');
+      }
+    }
+
+    function showHint() {
+      const item = parsedSentences[currentIndex];
+      const hints = item.blanks.map(b => b.answers[0]).join('  /  ');
+      feedbackMsg.innerHTML = `💬 Hint: <strong>${hints}</strong>`;
+      playSound('click');
+    }
+
+    function clearInputs() {
+      document.querySelectorAll('#sentenceDisplay .blank-input').forEach(inp => {
+        inp.value = '';
+        inp.classList.remove('correct-input', 'incorrect-input');
+      });
+      feedbackMsg.innerHTML = '';
+    }
+
+    function goToPrev() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderCard();
+        playSound('click');
+      }
+    }
+
+    function goToNext() {
+      if (currentIndex < total - 1) {
+        currentIndex++;
+        renderCard();
+        playSound('click');
+      }
+    }
+
+    function showReminder() {
+      reminderPanel.classList.add('active');
+      trainerPanel.classList.remove('active');
+      tabReminderBtn.classList.add('active');
+      tabTrainerBtn.classList.remove('active');
+    }
+
+    function showTrainer() {
+      reminderPanel.classList.remove('active');
+      trainerPanel.classList.add('active');
+      tabReminderBtn.classList.remove('active');
+      tabTrainerBtn.classList.add('active');
+      renderCard();
+    }
+
+    function shareWithTeacher() {
+      startTimer();
+      const elapsed = Date.now() - startTime;
+      const timeStr = formatTime(elapsed);
+      const score = Math.round((correctCount / total) * 100);
+
+      statCorrect.textContent = correctCount;
+      statTotal.textContent = total;
+      statScore.textContent = score + '%';
+      statTime.textContent = timeStr;
+
+      const text = 
+`📚 Own It! 3 · Unit 6 · Present Simple Passive
+━━━━━━━━━━━━━━━━━━━━━━
+✅ Correct: ${correctCount} / ${total}
+📊 Score: ${score}%
+⏱️ Time: ${timeStr}
+━━━━━━━━━━━━━━━━━━━━━━
+Completed by: _______________
+Date: ${new Date().toLocaleDateString('en-GB')}`;
+
+      shareText.value = text;
+      resultsSection.classList.add('visible');
+      resultsSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      playSound('correct');
+    }
+
+    function copyToClipboard() {
+      shareText.select();
+      shareText.setSelectionRange(0, 99999);
+      try {
+        navigator.clipboard.writeText(shareText.value).then(() => {
+          copyBtn.textContent = '✅ Copied!';
+          setTimeout(() => { copyBtn.textContent = '📋 Copy to Clipboard'; }, 2000);
+        });
+      } catch (e) {
+        document.execCommand('copy');
+        copyBtn.textContent = '✅ Copied!';
+        setTimeout(() => { copyBtn.textContent = '📋 Copy to Clipboard'; }, 2000);
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (trainerPanel.classList.contains('active')) {
+        if (e.key === 'ArrowLeft' && document.activeElement?.tagName !== 'INPUT') {
+          e.preventDefault();
+          goToPrev();
+        } else if (e.key === 'ArrowRight' && document.activeElement?.tagName !== 'INPUT') {
+          e.preventDefault();
+          goToNext();
+        } else if (e.key === 'Enter' && document.activeElement?.tagName === 'INPUT') {
+          e.preventDefault();
+          checkAnswers();
+        }
+      }
+    });
+
+    tabReminderBtn.addEventListener('click', showReminder);
+    tabTrainerBtn.addEventListener('click', showTrainer);
+    checkBtn.addEventListener('click', checkAnswers);
+    showHintBtn.addEventListener('click', showHint);
+    clearBtn.addEventListener('click', clearInputs);
+    prevBtn.addEventListener('click', goToPrev);
+    nextBtn.addEventListener('click', goToNext);
+    shareBtn.addEventListener('click', shareWithTeacher);
+    copyBtn.addEventListener('click', copyToClipboard);
+
+    renderCard();
+  })();
+</script>
+</body>
+</html>
